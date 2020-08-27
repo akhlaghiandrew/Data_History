@@ -1,1 +1,13 @@
+#!/bin/bash
 
+awk -F'|' '$9 ~ /AUSTIN/' itcont.txt >> austin_donors.txt
+ 
+awk -F'|' 'NR==FNR{a[$8];next} $8 in a{print $0}' wendydonors.txt itcont.txt > what.txt 
+
+
+#!/bin/usr/python3
+
+import pandas as pd
+import re 
+
+df_1= pd.read_csv('itcont.txt', sep='|', index_col=False, names=['CMTE_ID','AMNDT_IND','RPT_TP','Transaction_PGI','Image_num', 'Transaction_TP', 'Entity_TP','NAME','City','State','Zip_code','Employer','Occupation','Transaction_DT','Transaction_AMT','Other_ID','Tran_ID','File_NUM','MEMO_CD','Memo_text','Sub_ID'])
