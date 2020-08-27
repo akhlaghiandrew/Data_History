@@ -1,3 +1,21 @@
 import pandas as pd 
 
 df_1=read_csv.('file_name')
+
+df_1=pd.read_excel('state_naicssector_2010.xls', skiprows=4)
+list(df_1)
+
+df_2=df_1.loc[df_1['STATE DESCRIPTION']=='Texas']
+df_2.loc[7973]
+df_2.iloc[0]
+
+df_2=df_1.loc[df_1['NAICS DESCRIPTION']=='Agriculture, forestry, fishing and hunting']
+
+df_3=df_2.loc[df_2['ENTERPRISE EMPLOYMENT SIZE']=='1:   Total']
+
+df_3.mode(axis=1)
+
+df_3["NUMBER OF FIRMS"].mode()
+
+df_3["NUMBER OF FIRMS"].median()
+df_3['ANNUAL PAYROLL ($1,000)'].median()
