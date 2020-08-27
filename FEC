@@ -13,3 +13,6 @@ import re
 df_1= pd.read_csv('itcont.txt', sep='|', index_col=False, names=['CMTE_ID','AMNDT_IND','RPT_TP','Transaction_PGI','Image_num', 'Transaction_TP', 'Entity_TP','NAME','City','State','Zip_code','Employer','Occupation','Transaction_DT','Transaction_AMT','Other_ID','Tran_ID','File_NUM','MEMO_CD','Memo_text','Sub_ID'])
 
 df_1=pd.read_fwf('itcont.txt', delimiter='|')
+df_1.columns=['CMTE_ID','AMNDT_IND','RPT_TP','Transaction_PGI','Image_num', 'Transaction_TP', 'Entity_TP','NAME','City','State','Zip_code','Employer','Occupation','Transaction_DT','Transaction_AMT','Other_ID','Tran_ID','File_NUM','MEMO_CD','Memo_text','Sub_ID'])
+df_2 = df_1.loc[df_1['City']=='AUSTIN']
+
