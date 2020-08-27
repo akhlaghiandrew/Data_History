@@ -1,1 +1,44 @@
 
+from textblob import TextBlob
+text = "This is a very mean and nasty sentence."
+blob = TextBlob(text)
+sentiment_score = blob.sentiment.polarity
+print(sentiment_score)
+
+text = "This is a very nice and positive sentence."
+blob = TextBlob(text)
+sentiment_score = blob.sentiment.polarity
+print(sentiment_score)
+
+pprint(plt.style.available)
+plt.style.use('ggplot')
+
+
+os.chdir('/sharedfolder/Sample_corpora/Inaugural_Speeches/')
+sorted(os.listdir('./'))
+
+inaugural_filenames = sorted(os.listdir('./'))
+inaugural_sentiment_values = []
+
+for filename in inaugural_filenames:
+    inaugural_text = open(filename).read()
+    sentiment_polarity_value = TextBlob(inaugural_text).sentiment.polarity
+    inaugural_sentiment_values.append(sentiment_polarity_value)
+
+print(inaugural_sentiment_values)
+
+inaugural_labels = [item.replace('.txt','').replace('_', ' ').title() for item in inaugural_filenames]
+
+inaugural_labels
+
+plt.figure(figsize = (20,8))
+
+plt.xticks(range(len(inaugural_sentiment_values)), inaugural_labels)  # two arguments: tick positions, tick display list
+
+plt.xticks(rotation=-85)
+
+plt.ylabel('Sentiment Polarity Value')
+
+plt.plot(inaugural_sentiment_values)
+
+plt.show()
