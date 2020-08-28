@@ -1,0 +1,24 @@
+This class requires python and the python packages matplotlib and pandas 
+
+For Windows 
+if you have the space, download Anaconda. It comes with IDLE, Pandas, and Matplotlib
+https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html#regular-installation
+This is by far the easiest option for windows users.
+
+if you don't have enough space download miniconda or download pip for windows, then download pandas and matplotlib 
+
+For Mac OS
+You do not need to install Anaconda. But you can
+https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html#regular-installation
+This will install all the packages you need, but also alot you don't. It requires a lot of space. 
+
+Python 2 comes pre-installed 
+To update to python3 and install future packages like pandas and matplotlib you will need to install pip and homebrew.
+You can check to see if pip is installed in the command line. 
+$ pip -V
+or 
+$ which pip 
+
+To install pandas, Matplotlib, or other packages: 
+sudo pip install pandas 
+
