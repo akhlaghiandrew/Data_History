@@ -1,4 +1,4 @@
-This class requires python and the python packages matplotlib and pandas 
+This class requires python and the python packages matplotlib, pandas, and textblob 
 
 For Windows 
 if you have the space, download Anaconda. It comes with IDLE, Pandas, and Matplotlib
