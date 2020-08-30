@@ -1,0 +1,42 @@
+impor pandas as pd 
+
+df[ 'Sales_ID'][0]
+Out: 'AU_1382578        !'
+
+df['Sales_ID'] = df['Sales_ID'].str.rstrip('!').str.strip()
+###cleans whole column
+
+‘AU_1382578’ in Sales_ID → ‘AU’ in Sales_Branch.
+
+start: where to start with a default of 0
+stop: where to stop (exclusive)
+step: how far a step with a default of 1
+
+
+df['Sales_Branch'] = df['Sales_ID'].str.slice(stop=2)
+###take the first two letters and create a new column called Sales_ID
+
+df['Product_Description'][0]
+Out: 'The Fruit, a company that sells fruits from all over the world, has branches in Australia, the United Kingdom, the United States, and Taiwan. 
+Product: Apple Mango Banana Watermelon Orange Blueberry Banana Watermelon Kiwifruit'
+###contains description and product, need to split
+
+split() contains 3 parameters:
+pat: what to split on with a default of white space ‘ ’
+n: the users can specify how many splits they want
+expand: when expand=True, the splits are put into individual columns
+
+df['Product_Description'].str.split(' Product: ', expand=True)
+
+df['Description'] = df['Product_Description'].str.split(' Product: ', expand=True)[0]
+df['Product'] = df['Product_Description'].str.split(' Product: ', expand=True)[1]
+or
+df[['Description', 'Product']] = df['Product_Description'].str.split(': ', expand=True)
+
+df['Product'] = df['Product'].str.split().apply(sorted)
+
+df['Product_Description'].str.split(' Product: ', expand=True)
+
+###renme columns
+Products = df['Product'].apply(pd.Series)
+Products = Products.rename(columns=lambda x: 'Product_'+str(x))
