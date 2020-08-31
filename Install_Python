@@ -22,6 +22,12 @@ $ which pip
 If pip is not installed see: 
 https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py
 
+TLDR; do the following commands in the command line:
+$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+$ python get-pip.py
+$ sudo easy_install pip
+
+
 To install pandas, Matplotlib, or other packages: 
 $ sudo pip install pandas 
 
