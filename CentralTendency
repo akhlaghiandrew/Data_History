@@ -19,3 +19,13 @@ df_3["NUMBER OF FIRMS"].mode()
 
 df_3["NUMBER OF FIRMS"].median()
 df_3['ANNUAL PAYROLL ($1,000)'].median()
+
+
+Census data 
+Take a census table 
+import pandas as pd
+df_1=pd.read_csv('TABLE_FILE_NAME')
+df_1=pd.read_csv('TABLE_FILE_NAME', skiprows=1)
+
+
+pd.set_option('display.max_rows', 1000)
