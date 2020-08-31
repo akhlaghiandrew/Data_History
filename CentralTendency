@@ -27,5 +27,17 @@ import pandas as pd
 df_1=pd.read_csv('TABLE_FILE_NAME')
 df_1=pd.read_csv('TABLE_FILE_NAME', skiprows=1)
 
-
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
+pp.pprint(list(df_1))
 pd.set_option('display.max_rows', 1000)
+
+2012
+df_1["Total!!Estimate!!Bachelor's degree"]
+2018
+s1=df_1["Estimate!!Percent!!Population 25 years and over!!Bachelor's degree or higher"]
+
+s1=df_1["COLUMN_NAME"]
+s2=s1.replace('-',0)
+s3=s2.astype(float)
+s3.mean()
