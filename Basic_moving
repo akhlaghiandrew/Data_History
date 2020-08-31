@@ -37,3 +37,13 @@ Example 5:
 If you want to move a files: 
 >>> import shutil 
 >>> shutil.move(SOURCE_FILE, DESTINATION_FILE) # you can also use the shutil.copy or os.rename commands
+
+Example 6:
+get names of all files in directory
+>>> os.listdir()
+
+Example 7:
+print all names in a readable way 
+>>> import pprint
+>>> pp=pprint.PrettyPrinter()
+>>> pp.pprint(os.listdir())
