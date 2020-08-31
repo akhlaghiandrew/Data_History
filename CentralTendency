@@ -1,16 +1,23 @@
+# Create a dataframe
 import pandas as pd 
-
 df_1=read_csv.('file_name')
-
 df_1=pd.read_excel('state_naicssector_2010.xls', skiprows=4)
+
+#list column names
 list(df_1)
 
+#Get all rows for Texas
 df_2=df_1.loc[df_1['STATE DESCRIPTION']=='Texas']
+
+#Get row at index location 7973 
 df_2.loc[7973]
+#Get first row in datatframe
 df_2.iloc[0]
 
+#Get all rows in a particular industry
 df_2=df_1.loc[df_1['NAICS DESCRIPTION']=='Agriculture, forestry, fishing and hunting']
 
+#Get all rows with totals for a state
 df_3=df_2.loc[df_2['ENTERPRISE EMPLOYMENT SIZE']=='1:   Total']
 
 df_3.mode(axis=1)
@@ -20,7 +27,7 @@ df_3["NUMBER OF FIRMS"].mode()
 df_3["NUMBER OF FIRMS"].median()
 df_3['ANNUAL PAYROLL ($1,000)'].median()
 
-
+###For wednesday 
 Census data 
 Take a census table 
 import pandas as pd
