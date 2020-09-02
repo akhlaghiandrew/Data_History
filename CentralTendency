@@ -34,6 +34,7 @@ import pandas as pd
 df_1=pd.read_csv('TABLE_FILE_NAME')
 df_1=pd.read_csv('TABLE_FILE_NAME', skiprows=1)
 
+
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
 pp.pprint(list(df_1))
@@ -48,3 +49,9 @@ s1=df_1["COLUMN_NAME"]
 s2=s1.replace('-',0)
 s3=s2.astype(float)
 s3.mean()
+
+import matplotlib.pyplot as plt
+s2.hist(bins=4)
+plt.show()
+s2.median()
+s2.mean()
