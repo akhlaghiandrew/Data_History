@@ -7,6 +7,7 @@ Check working directory
 >>> import os
 >>> os.getcwd()
 '/Users/andrewakhlaghi'
+For windows
 
 Example 2:
 Get list of files and subdirectories in a directory 
