@@ -51,7 +51,7 @@ s3=s2.astype(float)
 s3.mean()
 
 import matplotlib.pyplot as plt
-s2.hist(bins=4)
+s3.hist(bins=4)
 plt.show()
-s2.median()
-s2.mean()
+s3.median()
+s3.mean()
