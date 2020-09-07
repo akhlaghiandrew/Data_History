@@ -1,6 +1,7 @@
 ###These are some code examples about how to make tables 
 ###Specifically, this code will go over how to open a csv or excel file as a dataframe, select columns out of it, and then save the output to a new csv.
 
+###Select columns from a dataframe, save to a new dataframe, and save that as a .csv
 import pandas as pd 
 df_1=pd.read_excel('state_naicssector_2010.xls', usecols=[' FIPS STATE   CODE', 'STATE DESCRIPTION', 'NAICS   CODE ', 'NAICS DESCRIPTION'], skiprows=4)
 df_1.to_csv('DESIDRED_FILENAME.csv')
