@@ -1,0 +1,5 @@
+###These are some code examples about how to make tables 
+###Specifically, this code will go over how to open a csv or excel file as a dataframe, select columns out of it, and then save the output to a new csv.
+
+import pandas as pd 
+df_1
