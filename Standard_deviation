@@ -1,4 +1,13 @@
+import os
+###Navigate to directory file is in
 for root, dirs, files in os.walk(os.getcwd()):
     for file in files:
         if file.endswith(".xls"):
              print(file)
+             
+df_1=pd.read_excel('state_naicssector_2010.xls', skiprows=4)
+df_2=df_1.loc[df_1['ENTERPRISE EMPLOYMENT SIZE']=='1:   Total']
+df_3=df_2.loc[df_2['NAICS DESCRIPTION']=='Agriculture, forestry, fishing and hunting']
+
+list(df_3)            
+df_3['ANNUAL PAYROLL ($1,000)'].describe() 
