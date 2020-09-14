@@ -10,7 +10,9 @@ df_2=df_1.iloc[54:100]
 df_2.rename(columns={"Unnamed: 5": "FEMALE_Mean_current", "Unnamed: 6": "Female_mean_2018"})
 ###how to easily plot with dataframes 
 df_2.plot(kind='line', x='Region and year',y='Unnamed: 2', color='red')
+plt.show()
 ###What is this showing? How should the years appear?
+plt.close()
 
 ###How to create a new dataframe that flips the order of the years and annual mean income for hispanic males
 df_3=pd.DataFrame({'Region and year':df_2['Region and year'].values[::-1], 'Money':df_2['Unnamed: 2'].values[::-1]})
@@ -18,9 +20,16 @@ df_3=pd.DataFrame({'Region and year':df_2['Region and year'].values[::-1], 'Mone
 
 df_3=pd.DataFrame({'Region and year':df_2['Region and year'].values[::-1], 'Money':df_2['Unnamed: 2'].values[::-1], 'Money_2018Dollars':df_2['Unnamed: 3'].values[::-1]})
 
+df_3.plt.(kind='line', x='REgion and year',y='Money_2018Dollars', color='red')
+plt.show()
+plt.close()
 
 ###Do women follow the same trend?
 df_3=pd.DataFrame({'Region and year':df_2['Region and year'].values[::-1], 'Money_Man':df_2['Unnamed: 3'].values[::-1], 'Money_Women':df_2['Unnamed: 6'].values[::-1]})
 
 df_3.plot(kind='line', x='Region and year',y='Money_Man', color='red')
+plt.show()
+plt.close()
 df_3.plot(kind='line', x='Region and year',y='Money_Women', color='red')
+plt.show()
+plt.close()
