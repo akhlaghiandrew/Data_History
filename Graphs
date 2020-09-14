@@ -1,0 +1,16 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df_1=pd.read_excel['FILNEAME']
+df_2=df_1.iloc[54:105]
+
+df_2.rename(columns={"Unnamed: 5": "FEMALE_Mean_current", "Unnamed: 6": "Female_mean_2018"})
+df_2.plot(kind='line', x='Region and year',y='Unnamed: 3', color='red')
+
+
+df_3=pd.DataFrame({'Region and year':df_2['Region and year'].values[::-1], 'Money':df_2['Unnamed: 2'].values[::-1]})
+
+df_3=pd.DataFrame({'Region and year':df_2['Region and year'].values[::-1], 'Money_Man':df_2['Unnamed: 2'].values[::-1], 'Money_Women':df_2['Unnamed: 5'].values[::-1]})
+
+df_3.plot(kind='line', x='Region and year',y='Money_Man', color='red')
+df_3.plot(kind='line', x='Region and year',y='Money_Women', color='red')
