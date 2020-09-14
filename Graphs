@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 ###if necessary 
 $ sudo pip install xlrd
 
-df_1=pd.read_excel['FILNEAME']
-df_2=df_1.iloc[54:105]
+df_1=pd.read_excel('FILNEAME'])
+df_2=df_1.iloc[54:100]
 
 df_2.rename(columns={"Unnamed: 5": "FEMALE_Mean_current", "Unnamed: 6": "Female_mean_2018"})
 df_2.plot(kind='line', x='Region and year',y='Unnamed: 3', color='red')
