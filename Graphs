@@ -1,5 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+###if necessary 
+$ sudo pip install xlrd
 
 df_1=pd.read_excel['FILNEAME']
 df_2=df_1.iloc[54:105]
