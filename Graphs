@@ -40,46 +40,49 @@ plt.close()
  df_2=pd.read_excel('women_workforce.xlsx', skiprows=19)
  df_3=pd.read_excel('Men_wages.xlsx', skiprows=19)
  
-def make_patch_spines_invisible(ax):
-  ax.set_frame_on(True)
-  ax.patch.set_visible(False)
-    for sp in ax.spines.values():
-      sp.set_visible(False)
+fig, ax1 = plt.subplots()
 
-fig, ax1= plt.subplots()
-fig.subplots_adjust(right=0.75)
-ax2=ax1.twinx()
-ax3=ax1.twinx()
-ax3.spines["right"].set_position(("axes", 1.2))
-make_patch_spines_invisible(ax3)
-ax3.spines["right"].set_visible(True)
- 
+ax1.set_xlabel("Year")
+color = 'tab:red'
+ax1.set_ylabel('Women_wages')
+ax1.plot(year2, wages2, color=color, label="Women_wages")
+plt.legend()
+
+ax2 = ax1.twinx()
+
+#!/usr/bin/env python3
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df_1=pd.read_excel('women_wages.xlsx', skiprows=19)
+df_2=pd.read_excel('women_workforce.xlsx', skiprows=19)
+df_3=pd.read_excel('Men_wages.xlsx', skiprows=19)
+
 year=df_2['Year']
 year2=df_2['Year'].iloc[0:41]
- 
-wages=df_1['Annual']
-wages2=wages.iloc[0:41]
 
 wages_men=df_3['Annual']
 wages_men2=wages_men.iloc[0:41]
 
+wages=df_1['Annual']
+wages2=wages.iloc[0:41]
+
 women_workforce=df_2['Annual']
 women_workforce2=women_workforce.iloc[0:41]
- 
-ax1.set_xlabel("Year")
-color = 'tab:red'
- 
-ax1.set_ylabel('Women_wgaes')
-ax1.plot(year2, wages, color=color, label="Women_wages")
+
+fig, ax1 = plt.subplots()
+
 color ='tab:blue'
 ax2.set_ylabel('men_wages')
-ax2.plot(year2, wages2, color=color, label="Men_wages")
-color = 'tab:green'
-ax3.set_ylabel('attacks')
-ax3.plot(year2, women_workforce2, color=color, label="Attacks")
+ax2.plot(year2, wages_men2, color=color, label="Men_wages")
 plt.legend()
-plt.savefig(me)
-plt.close()
 
- 
- 
+#ax3= ax1.twinx()
+
+#color = 'tab:green'
+#ax3.set_ylabel('Women_workforce')
+#ax3.plot(year2, women_workforce2, color=color, label="Women's workforce")
+#plt.legend()
+
+plt.show()
