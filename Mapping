@@ -1,0 +1,24 @@
+#Census and Blockgroup equivalence 
+#import pandas as pd
+
+#Take a plain text file with equivalences for Texas congressional districts and census blocks, read as a dataframe
+df_1=pd.read_csv('tx_cong.txt')
+#Select only those rows that are for the 25th District 
+tx25=df_1.loc[df_1['01']=='25']
+
+#Make a new column with the census block group numbers
+tx25['ID']=tx25.strng.str[0:12]
+#Eliminate duplicates and corresponding rows in the new column
+tx25_2=tx25.drop_duplicates(subset='ID',keep='first')
+
+#Read the census data for Bell county as a dataframe, it has a column with the complete GEO_ID
+df_data=pd.read_csv('data.csv')
+#create new column that takes as its values the GEO_ID and goes from the 10th digit until the end
+df_data['ID']=df_data.GEO_ID.str[9:]
+#Create a list out of that column
+l2=tx25_2['ID'].tolist()
+
+#Go through the census data and only keep those rows where the GEOID is in the list of GEOIDs for the 25th district 
+df_final=df_data.loc[df_data['ID'].isin(l2)]
+#Save the data frame as a .csv
+df_final.to_csv('Bell_25.csv')
