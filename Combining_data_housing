@@ -15,3 +15,47 @@ df_5.to_csv('five.csv')
 df_5.plot()
 plt.show()
 print(list(df_5))
+                                                                                                                                       
+###Stacked bar grpah using dataframe
+#!/usr/bin/env python3
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df_1=pd.read_csv('housing2010.csv', skiprows=[1])
+df_2=pd.read_csv('housing2019.csv', skiprows=[1])
+
+df_1=pd.DataFrame({'white': [df_1['S2502_C02_002E'].iloc[0],df_2['S2502_C04_002E'].iloc[0]],'black': [df_1['S2502_C02_003E'].iloc[0],df_2['S2502_C04_003E'].iloc[0]], 'native': [df_1['S2502_C02_004E'].iloc[0],df_2['S2502_C04_004E'].iloc[0]], 'asian': [df_1['S2502_C02_005E'].iloc[0],df_2['S2502_C04_005E'].iloc[0]], 'pacific': [df_1['S2502_C02_006E'].iloc[0],df_2['S2502_C04_006E'].iloc[0]], 'other': [df_1['S2502_C02_007E'].iloc[0],df_2['S2502_C04_007E'].iloc[0]], 'orMore': [df_1['S2502_C02_008E'].iloc[0],df_2['S2502_C04_008E'].iloc[0]]})
+
+df_1.plot(kind='bar', stacked=True)
+
+plt.show()
+                                                                                                                                       
+###Showing Margin of error                                                                                                                                       
+#!/usr/bin/env python3
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df_1=pd.read_csv('housing2010.csv', skiprows=[1])
+df_2=pd.read_csv('housing2019.csv', skiprows=[1])
+
+labels = [2010,2019]
+
+latino = [df_1['S2502_C02_009E'].iloc[0],df_2['S2502_C04_009E'].iloc[0]]
+
+latino_w = [df_1['S2502_C02_010E'].iloc[0],df_2['S2502_C04_010E'].iloc[0]]
+
+LAMError= [df_1['S2502_C02_009M'].iloc[0],df_2['S2502_C04_009M'].iloc[0]]
+LAWMError= [df_1['S2502_C02_010M'].iloc[0],df_2['S2502_C04_010M'].iloc[0]]
+barWidth = 0.35
+
+fig, ax = plt.subplots()
+
+ax.bar(labels, latino, barWidth, yerr=LAMError, label='Latino')
+ax.bar(labels, latino_w, barWidth, yerr=LAWMError, bottom=latino, label='Only white')
+
+ax.set_ylabel('Home ownership')
+ax.set_title('Austin and Home ownership')
+ax.legend()
+
+plt.show()                                                                                               
