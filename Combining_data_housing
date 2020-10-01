@@ -5,12 +5,11 @@ import matplotlib.pyplot as plt
 
 df_1=pd.read_csv('housing2010.csv', skiprows=1)
 df_2=pd.read_csv('housing2019.csv', skiprows=1)
-
-df_3=pd.DataFrame({'2010_White':df_1['Owner-occupied housing units!!Estimate!!White alone, not Hispanic or Latino'], '2019_white':df_2['Estimate!!Percent owner-occupied housing units!!Occupied$
+df_3=pd.DataFrame({'2010_White':df_1['Owner-occupied housing units!!Estimate!!White alone, not Hispanic or Latino'], '2019_white':df_2['Estimate!!Percent occupied housing units!!Occupied housing units!!RACE AND HISPANIC OR LATINO ORIGIN OF HOUSEHOLDER!!One race --!!White']})
 df_3.to_csv('class.csv')
 df_4=df_3.T
 df_4.to_csv('four.csv')
-df_5=df_4.rename(columns={'0': 'Home_ownership'}, index={'2010_White': '2010', '2019_white': '2019'})
+df_5=df_4.rename(columns={0: 'Home_ownership'}, index={'2010_White': '2010', '2019_white': '2019'})
 df_5.to_csv('five.csv')
 df_5.plot()
 plt.show()
