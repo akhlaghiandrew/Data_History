@@ -10,4 +10,16 @@ df_dems_TX_25['stage']=df_dems_TX_25['stage'].fillna('gen')
 votes=df_dems_TX_25['candidatevotes']
 votes.pct_change()
 
-df_final=pd.DataFram=
+df_final=pd.DataFrame({'year':df_dems_TX_25['year'], 'percent_chng_vote_total': df_dems_TX_25['candidatevotes'].pct_change()})
+
+
+repubs_25 = df_years.loc[((df_years['party']=='republican') & (df_years['district']==25))]
+
+df_both=pd.DataFram({'year':df_dems_TX_25['year'], 'D_percent_chng_vote_total': df_dems_TX_25['candidatevotes'].pct_change(), 'R_precent_chng_vote_total': repubs_25['candidatevotes'].pct_change()})
+
+
+df_both=pd.DataFrame({'year':df_dems_TX_25['year'], 'D_percent_chng_vote_total': df_dems_TX_25['candidatevotes'].pct_change(), 'R_precent_chng_vote_total': repubs_25['candidatevotes'].pct_change()})
+
+df_1=pd.DataFrame({'year':df_dems_TX_25['year'],'change':df_dems_TX_25['candidatevotes'].pct_change()})
+df_2=pd.DataFrame({'year':repubs_25['year'], 'R_change':repubs_25['candidatevotes'].pct_change()})
+df_2.join(df_1.set_index('year'), on='year')
