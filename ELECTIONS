@@ -1,0 +1,13 @@
+import pandas as pd
+
+df_1=pd.read_csv('1976-2018-house2.csv',encoding='latin1')
+list_years=[2000,2002,2004,2006,2008,2010,2012,2014,2016,2018]
+df_TX=df_1.loc[df_1['state_po']=='TX']
+df_years=df_TX.loc[df_TX['year'].isin(list_years)]
+df_dems_TX=df_years.loc[df_years['party']=='democrat']
+df_dems_TX_25=df_dems_TX.loc[df_dems_TX['district']==25]
+df_dems_TX_25['stage']=df_dems_TX_25['stage'].fillna('gen')
+votes=df_dems_TX_25['candidatevotes']
+votes.pct_change()
+
+df_final=pd.DataFram=
