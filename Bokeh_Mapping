@@ -2,6 +2,8 @@
 # here is an example of how to make an interactive map of texas using bokeh 
 # the trickiest part is getting the data in the right format to put into bokeh
 # sample code below is from https://docs.bokeh.org/en/latest/docs/gallery/texas.html#gallery-texas
+# Shapefiles for census boundaries can be found at https://www.census.gov/cgi-bin/geo/shapefiles/index.php
+# and https://catalog.data.gov/dataset/tiger-line-shapefile-2019-state-texas-current-census-tract-state-based
 
 from bokeh.io import show
 from bokeh.models import LogColorMapper
