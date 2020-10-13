@@ -28,6 +28,7 @@ Calculate MOE
 #!/usr/bin/env python3
 import math
 
+### you must input Biden's share of the poll as a decimal, less than one
 D=float(input("Biden number: "))
 sample=float(input("Sample size: "))
 
