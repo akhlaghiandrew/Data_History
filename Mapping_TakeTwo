@@ -10,3 +10,9 @@ import matplotlib.pyplot as plt
 SA=gpd.read_file('cartodb-query.shp')
 SA.plot()
 plt.show()
+
+#But what else do we have?
+SA.plot(column='holc_grade')
+fig, ax = plt.subplots(1, 1)
+SA.plot(column='holc_grade', ax=ax, legend=True)
+plt.show()
