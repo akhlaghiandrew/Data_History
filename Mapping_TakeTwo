@@ -1,0 +1,12 @@
+#helpful how to https://geopandas.org/mapping.html
+#the shapefiles https://dsl.richmond.edu/panorama/redlining/#loc=12/29.424/-98.588&city=san-antonio-tx&text=downloads
+
+#you need this additional library to plot in geopandas 
+sudo pip install descartes
+
+import geopandas as gpd
+import matplotlib.pyplot as plt
+
+SA=gpd.read_file('cartodb-query.shp')
+SA.plot()
+plt.show()
