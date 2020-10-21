@@ -19,6 +19,9 @@ plt.show()
 
 
 #combining data and a shapefile
+# census shapefiles https://www.census.gov/cgi-bin/geo/shapefiles/index.php
+# Data from https://data.census.gov/
+
 import geopandas as gpd
 import pandas as pd
 import matplotlib.pyplot as plt
