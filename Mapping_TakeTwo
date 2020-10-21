@@ -16,3 +16,18 @@ SA.plot(column='holc_grade')
 fig, ax = plt.subplots(1, 1)
 SA.plot(column='holc_grade', ax=ax, legend=True)
 plt.show()
+
+
+#combining data and a shapefile
+import geopandas as gpd
+import pandas as pd
+import matplotlib.pyplot as plt
+
+tl = gpd.read_file('tl_2019_40_tract.shp')
+ok = pd.read_csv('oklahomatract.csv', skiprows=[1])
+ok2=pd.DataFrame({'GEOID':ok['GEO_ID'], 'BA_Over_25':ok['S1501_C01_012E']})
+ok3 = gpd.GeoDataFrame(ok2)
+ok3['GEOID']=ok3['GEOID'].str[9:]
+final = tl.merge(ok3, on='GEOID')
+final.plot(column='BA_Over_25')
+plt.show()
