@@ -4,8 +4,9 @@
 ###Less math heavy history/context of the development of Natural Language Processing
 ###https://search.lib.utexas.edu/permalink/01UTAU_INST/apl7st/cdi_crossref_primary_10_1016_S0024_3841_96_00042_3
 ###Very math heavy handout https://web.stanford.edu/class/linguist236/materials/ling236-handout-05-09-vsm.pdf
+### IF your are having trouble installing nltk, install anaconda.
 
-###Libraries you will need, BeautifulSoup may require install
+###Libraries you will need, BeautifulSoup4 and nltk may require install
 import urllib
 from urllib import request
 from urllib.parse import quote
