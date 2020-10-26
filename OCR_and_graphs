@@ -1,0 +1,34 @@
+### You will need a library called tabula.
+### See download instructions here : https://tabula-py.readthedocs.io/en/latest/getting_started.html
+
+>>> import tabula
+>>> import os
+for root, dirs, files in os.walk(place):
+  for name in files:
+    name2=name[:-4]+"_recog.csv"
+    tabula.io.convert_into(name, name2, pages='all')
+
+df= pd.read_csv('2018_1_21_recog.csv')
+
+df_1=df.loc[df['Total Registered Voters'].str.contains('PROPOSITION J, LAND DEVELOPMENT CODE, CITY OF AUSTIN, Vote For 1')]
+
+
+for item in df_1.index:
+  for i in range(4):
+  num=item+i
+  df_1.iloc[num]
+
+
+df= pd.read_csv('2018_1_21_recog.csv')
+
+df_1=df.loc[df['Total Registered Voters'].str.contains('PROPOSITION J, LAND DEVELOPMENT CODE, CITY OF AUSTIN, Vote For 1')]
+
+df_new=pd.DataFrame(columns=['Early'])
+
+for item in df_1.index:
+  num=item+4
+  df_new_2=df.iloc[item:num]
+  df_new=df_new.append(df_new_2)
+
+ df_new[['Total','Percent']]=df_new['Unnamed: 4'].str.split(expand=True)
+df_new.to_csv(new_name)
