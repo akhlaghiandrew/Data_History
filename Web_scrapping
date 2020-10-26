@@ -1,3 +1,11 @@
+###How do we know the meaning of a word? 
+###Firth "You shall know a word by the company it keeps
+###How do we model language? 
+###Less math heavy history/context of the development of Natural Language Processing
+###https://search.lib.utexas.edu/permalink/01UTAU_INST/apl7st/cdi_crossref_primary_10_1016_S0024_3841_96_00042_3
+###Very math heavy handout https://web.stanford.edu/class/linguist236/materials/ling236-handout-05-09-vsm.pdf
+
+###Libraries you will need, BeautifulSoup may require install
 import urllib
 from urllib import request
 from urllib.parse import quote
@@ -5,28 +13,35 @@ from bs4 import BeautifulSoup
 from collections import Counter
 import os 
 
+###Get the HTML of a page
 target_page="https://www.imdb.com/title/tt0118480/reviews?ref_=tt_ql_3"
 resp = urllib.request.urlopen(target_page)
 soup = BeautifulSoup(resp, 'html.parser')
 
+###Create an empty list
 list_1=[]
 
+###Put all the links in a page in a list
 for link in soup.find_all('a'):
     list_1.append(link.get('href')
     
+###find the comments
 me = soup.find_all("div", {"class": "text show-more__control"})
-    
+
+###Open a documents and write the comments to it
 doc = open(name, 'w+')
 me =str(me)
 doc.write(me)
 doc.close()
 
+###Open the file, read contents, count most common words
 file = open("all.txt", "rt")
 data=file.read()
 words=data.split()
 Counter = Counter(words)
 Counter.most_common(10)
 
+###Remove stop words
 stop_words = set(stopwords.words('english')) 
 fil = [w for w in words if not w in stop_words] 
 
