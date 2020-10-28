@@ -1,4 +1,5 @@
 #data https://github.com/washingtonpost/data-police-shootings
+#an example https://search.proquest.com/openview/7007ff5d147bab031b5cf15489a8872a/1?pq-origsite=gscholar&cbl=22809
 
 import pandas as pd
 import datetime
