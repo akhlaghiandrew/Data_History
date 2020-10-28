@@ -1,0 +1,28 @@
+#data https://github.com/washingtonpost/data-police-shootings
+
+import pandas as pd
+import datetime
+import math
+
+df=pd.read_csv('fatal_data.csv')
+df['date']
+
+pd.DatetimeIndex(df['date']).year
+df['year']=pd.DatetimeIndex(df['date']).year
+
+df_1=df.loc[df['race']=='B']
+
+df_2=df_1.loc[df_1['year']==2015]
+ 
+df.groupby(by=['year']).count()
+
+#population mean is 13.4% by 2010 census, what is our sample 
+
+#proportion
+258/994
+
+standard_deviation = math.sqrt(.26*(1-.26))
+standard_error= s/math.sqrt(994)
+t = (0.26-0.13)/se
+
+#what is the t value?
