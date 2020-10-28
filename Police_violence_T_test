@@ -25,4 +25,4 @@ standard_deviation = math.sqrt(.26*(1-.26))
 standard_error= s/math.sqrt(994)
 t = (0.26-0.13)/se
 
-#what is the t value?
+#find the t score in a table
