@@ -30,14 +30,14 @@ for link in soup.find_all('a'):
 me = soup.find_all("div", {"class": "text show-more__control"})
 
 ###Open a documents and write the comments to it
-doc = open(name, 'w+')
+doc = open(DESIRED_FILENAME, 'w+')
 me =str(me)
 doc.write(me)
 doc.close()
 
 ###Open the file, read contents, count most common words
 ###Remeber, you need to import Counter by: from collections import Counter 
-file = open("all.txt", "rt")
+file = open("[DESIRED_FILENAME", "rt")
 data=file.read()
 words=data.split()
 Counter = Counter(words)
