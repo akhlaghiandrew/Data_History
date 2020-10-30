@@ -36,6 +36,8 @@ doc.write(me)
 doc.close()
 
 ###Open the file, read contents, count most common words
+###Sometimes you need to import Counter by:
+### from collections import Counter 
 file = open("all.txt", "rt")
 data=file.read()
 words=data.split()
