@@ -30,5 +30,15 @@ for item in df_1.index:
   df_new_2=df.iloc[item:num]
   df_new=df_new.append(df_new_2)
 
- df_new[['Total','Percent']]=df_new['Unnamed: 4'].str.split(expand=True)
+###
+df= pd.read_csv('2018_1_21_recog.csv')
+df_new=df_new=pd.DataFrame()
+
+df_1=df.loc[df['Total Registered Voters'].str.contains('PROPOSITION J, LAND DEVELOPMENT CODE, CITY OF AUSTIN, Vote For 1')]
+
+df_1['New']=df.loc[df['Total Registered Voters'].str.contains('Total registered voters in Precinct')]
+
+df_new[['Total','Percent']]=df_new['Unnamed: 4'].str.split(expand=True)
 df_new.to_csv(new_name)
+
+df_new['precinct']=df_1['Total Registered Voters'].str[-4:]
