@@ -65,4 +65,13 @@ df_final[['Total','Percent']]=df_fina['For'].str.split(expand=True)
 name=dis+'.csv'
 df_final.to_csv(name)
 
+###combine them all
+
+one=df['Precinct'].dropna().reset_index(drop=True)
+two=df['For'].dropna().reset_index(drop=True)
+three=df['Total'].dropna().reset_index(drop=True)
+four=df['Percent'].dropna().reset_index(drop=True)
+df_final=pd.concat([one,two,three,four], axis=1, sort=False)
+df_final.to_csv('Austin_done.csv')
+
 
