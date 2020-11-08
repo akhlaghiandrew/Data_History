@@ -31,7 +31,7 @@ for item in df_1.index:
   df_new=df_new.append(df_new_2)
 
 ###
-df= pd.read_csv('2018_1_21_recog.csv')
+
 df_new=df_new=pd.DataFrame()
 
 df_1=df.loc[df['Total Registered Voters'].str.contains('PROPOSITION J, LAND DEVELOPMENT CODE, CITY OF AUSTIN, Vote For 1')]
@@ -42,3 +42,27 @@ df_new[['Total','Percent']]=df_new['Unnamed: 4'].str.split(expand=True)
 df_new.to_csv(new_name)
 
 df_new['precinct']=df_1['Total Registered Voters'].str[-4:]
+
+###Final
+dis=input('District range: _X_X_')
+file_name=f'2018district{dis}recog.csv'
+df= pd.read_csv(filename)
+
+df_new=pd.DataFrame()
+df_1=df.loc[df['Total Registered Voters'].str.contains('PROPOSITION J, LAND DEVELOPMENT CODE, CITY OF AUSTIN, Vote For 1')]
+
+for item in df_1.index:
+  num=item+1
+  df_new2=df.iloc[num]
+  df_new=df_new.append(df_new2)
+  
+df_1=df.loc[df['Total Registered Voters'].str.contains('Total registered voters in Precinct')]
+df_1['Precinct']=df_1['Total Registered Voters'].str[-4:]
+df_1=df_1.iloc[::2]
+
+df_final=pd.DataFrame({'Precinct': df_1['Precinct'],'For': df_new['Unnamed: 4']})
+df_final[['Total','Percent']]=df_fina['For'].str.split(expand=True)
+name=dis+'.csv'
+df_final.to_csv(name)
+
+
