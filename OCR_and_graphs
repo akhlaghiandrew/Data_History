@@ -56,11 +56,11 @@ for item in df_1.index:
   df_new2=df.iloc[num]
   df_new=df_new.append(df_new2)
   
-df_1=df.loc[df['Total Registered Voters'].str.contains('Total registered voters in Precinct')]
-df_1['Precinct']=df_1['Total Registered Voters'].str[-4:]
-df_1=df_1.iloc[::2]
+df_2=df.loc[df['Total Registered Voters'].str.contains('Total registered voters in Precinct')]
+df_2['Precinct']=df_1['Total Registered Voters'].str[-4:]
+df_3=df_2.iloc[::2]
 
-df_final=pd.DataFrame({'Precinct': df_1['Precinct'],'For': df_new['Unnamed: 4']})
+df_final=pd.DataFrame({'Precinct': df_3['Precinct'],'For': df_new['Unnamed: 4']})
 df_final[['Total','Percent']]=df_fina['For'].str.split(expand=True)
 name=dis+'.csv'
 df_final.to_csv(name)
