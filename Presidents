@@ -1,5 +1,7 @@
-
+import os
 from textblob import TextBlob
+
+###textblob sentiment analysis 
 text = "This is a very mean and nasty sentence."
 blob = TextBlob(text)
 sentiment_score = blob.sentiment.polarity
@@ -10,6 +12,7 @@ blob = TextBlob(text)
 sentiment_score = blob.sentiment.polarity
 print(sentiment_score)
 
+###How do we evaluate presidents?
 pprint(plt.style.available)
 plt.style.use('ggplot')
 
@@ -31,14 +34,12 @@ inaugural_labels = [item.replace('.txt','').replace('_', ' ').title() for item i
 
 inaugural_labels
 
+###format the plot
 plt.figure(figsize = (20,8))
-
 plt.xticks(range(len(inaugural_sentiment_values)), inaugural_labels)  # two arguments: tick positions, tick display list
-
 plt.xticks(rotation=-85)
 
+###plot
 plt.ylabel('Sentiment Polarity Value')
-
 plt.plot(inaugural_sentiment_values)
-
 plt.show()
