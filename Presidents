@@ -18,7 +18,7 @@ pprint(plt.style.available)
 plt.style.use('ggplot')
 
 
-os.chdir('/sharedfolder/Sample_corpora/Inaugural_Speeches/')
+os.chdir('DIRECTORY_YOU_PUT_PREZ.ZIP')
 sorted(os.listdir('./'))
 
 inaugural_filenames = sorted(os.listdir('./'))
