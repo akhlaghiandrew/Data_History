@@ -1,5 +1,6 @@
 import os
 from textblob import TextBlob
+###The dataset is prez.zip
 
 ###textblob sentiment analysis 
 text = "This is a very mean and nasty sentence."
