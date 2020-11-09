@@ -25,7 +25,7 @@ inaugural_filenames = sorted(os.listdir('./'))
 inaugural_sentiment_values = []
 
 for filename in inaugural_filenames:
-    inaugural_text = open(filename).read()
+    inaugural_text = open(filename, encoding='utf-8').read()
     sentiment_polarity_value = TextBlob(inaugural_text).sentiment.polarity
     inaugural_sentiment_values.append(sentiment_polarity_value)
 
