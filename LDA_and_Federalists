@@ -16,6 +16,7 @@ for author, files in papers.items():
 
 
 text= str(federalist_by_author)
+###or text = str(federalist_by_author["Madison"])
 document_split = text.split('\n\n\n\n\n')
 from sklearn.feature_extraction.text import CountVectorizer
 vectorizer = CountVectorizer()
@@ -32,3 +33,6 @@ for i, topic_distribution in enumerate(topic_word):
   topic_words = np.array(vocabulary)[np.argsort(topic_distribution)][:-(n_top_words+1):-1]
   print('topic {}: {}'.format(i, ' '.join(topic_words)))
   print()
+
+
+authors = ("Hamilton", "Madison", "Disputed", "Jay", "Shared")
