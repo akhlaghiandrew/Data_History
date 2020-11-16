@@ -1,7 +1,10 @@
 ###Here is the tutorial we went over in class: https://github.com/LibraryOfCongress/data-exploration/blob/master/LOC.gov%20JSON%20API.ipynb
 ### A problem we encounatered was how to find out the keys / metadata fields for different collections
 ### This is how I did it for the Abdul Hamid II collection 
+### remember to install the requests library 
 import requests
+from collections import Counter
+
 key_counter = Counter()
 
 abdul= requests.get("https://www.loc.gov/collections/abdul-hamid-ii/?fo=json").json()
