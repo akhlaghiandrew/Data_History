@@ -1,0 +1,29 @@
+###Here is the tutorial we went over in class: https://github.com/LibraryOfCongress/data-exploration/blob/master/LOC.gov%20JSON%20API.ipynb
+### A problem we encounatered was how to find out the keys / metadata fields for different collections
+### This is how I did it for the Abdul Hamid II collection 
+import requests
+key_counter = Counter()
+
+abdul= requests.get("https://www.loc.gov/collections/abdul-hamid-ii/?fo=json").json()
+
+for item in abdul['results']:
+  for item in item.keys():
+    key_counter[item] += 1
+
+key_counter
+###All the keys for the Abdul Hamid II collectin are contained in the key_counter variable. Just type key_counter to see all the keys. 
+
+Counter({'access_restricted': 25, 'aka': 25, 'campaigns': 25, 'contributor': 25, 'date': 25, 'dates': 25, 'description': 25, 'digitized': 25, 'extract_timestamp': 25, 
+'group': 25, 'hassegments': 25, 'id': 25, 'image_url': 25, 'index': 25, 'language': 25, 'location': 25, 'mime_type': 25, 'online_format': 25, 'original_format': 25, 
+'other_title': 25, 'partof': 25, 'shelf_id': 25, 'site': 25, 'subject': 25, 'timestamp': 25, 'title': 25, 'url': 25})
+
+### so there is a location entry for the the Abdul Hamid II collection. lets graph it!
+location_counter = Counter()
+
+for item in abdul['results']:
+  if item['location'] is not None:
+    for location in item['location']:
+      location_counter[location] += 1 
+
+locations = pd.Series(location_counter)
+locations.sort_values(ascending=True).plot(kind='barh', figsize=(9,9))
