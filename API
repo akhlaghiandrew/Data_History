@@ -6,6 +6,9 @@ key_counter = Counter()
 
 abdul= requests.get("https://www.loc.gov/collections/abdul-hamid-ii/?fo=json").json()
 
+### to get keys from a dictionary, use the keys method
+abdul.keys()
+
 for item in abdul['results']:
   for item in item.keys():
     key_counter[item] += 1
