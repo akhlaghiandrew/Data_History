@@ -1,4 +1,5 @@
 ###Working with gender and wages 
+### data here https://www.census.gov/data/tables/time-series/demo/income-poverty/historical-income-people.html
 import pandas as pd
 import matplotlib.pyplot as plt
 
