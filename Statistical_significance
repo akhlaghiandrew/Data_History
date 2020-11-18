@@ -19,3 +19,6 @@ years=df_3['Year'].astype(str).str[0:4]
 
 years=years.values[::-1]
 nums=nums.values[::-1]
+
+plt.figure(figsize=(9, 3))
+plt.plot(years, nums)
