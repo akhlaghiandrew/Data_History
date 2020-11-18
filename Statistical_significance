@@ -1,0 +1,20 @@
+###Working with gender and wages 
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df_1=pd.read_excel('p06a.xlsx', skiprows=7)
+df_2=df_1.iloc[0:20]
+
+df_3 = df_2.rename(columns={"Unnamed: 0": "Year", "Unnamed: 1": "Men_with_income", "Current\ndollars": 'Mean_current_dollars', '2019\ndollars': "Mean_2019_dollars", "Unnamed: 4": "Women_with_income", "Current\ndollars.1": "women_mean_current_dollars", "2019\ndollars.1": "Mean_w_2019_dollars"})
+
+df_3['difference']=df_3['Mean_2019_dollars']-df_3['Mean_w_2019_dollars']
+
+df_3['difference_pcnt']=df_3['Mean_2019_dollars']/df_3['Mean_w_2019_dollars']
+
+nums=df_3['difference_pcnt']
+years=df_3['Years']
+
+years=df_3['Year'].astype(str).str[0:4]
+
+years=years.values[::-1]
+nums=nums.values[::-1]
