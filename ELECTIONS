@@ -32,9 +32,9 @@ import math
 D=float(input("Biden number: "))
 sample=float(input("Sample size: "))
 
-sample_standard_error=D*(1-D)
+sample_standard_deviation=D*(1-D)
 
-r_error=math.sqrt(sample_standard_error)
+r_error=math.sqrt(sample_standard_deviation)
 r_sample=math.sqrt(sample)
 
 MOE=1.96*(r_error/r_sample)
