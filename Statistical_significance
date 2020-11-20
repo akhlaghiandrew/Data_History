@@ -29,5 +29,12 @@ import math
 sample_standard_deviation= math.sqrt(p*(1-p))
 
 Z test
+z_value=(value-population_mean)/standard_deviation
+T test =(sample_mean-population_mean)/standard_error
+standard_error=standard_deviation/root_samples_size
 
-T test 
+###What is wrong with this data? does it make sense?
+###What is a log t
+### Eample with SPSS http://core.ecu.edu/psyc/wuenschk/docs30/Sex-Salary.pdf
+### Log transformation 
+### Kurtosis
