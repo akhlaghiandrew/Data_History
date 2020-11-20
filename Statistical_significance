@@ -30,7 +30,9 @@ sample_standard_deviation= math.sqrt(p*(1-p))
 
 Z test
 z_value=(value-population_mean)/standard_deviation
+
 T test =(sample_mean-population_mean)/standard_error
+###Student, "The Probable Error of a Mean." Biometrika (Mar, 1908): 1-25. 
 standard_error=standard_deviation/root_samples_size
 
 ###What is wrong with this data? does it make sense?
