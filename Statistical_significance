@@ -22,3 +22,12 @@ nums=nums.values[::-1]
 
 plt.figure(figsize=(9, 3))
 plt.plot(years, nums)
+
+
+### Standard deviation of a proportion
+import math
+sample_standard_deviation= math.sqrt(p*(1-p))
+
+Z test
+
+T test 
