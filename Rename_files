@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+#In the folder i had two files name example_Cleveland.xsls and example_Port_Organge.xlsx
+#You can expand the control flow as needed 
+
+import shutil
+FOLDER_NAME=input("Folder name:")
+PATH="/Users/andrewakhlaghi/Desktop/"+FOLDER_NAME
+
+for root, dirs, files in os.walk(PATH):
+  for name in files:
+    if name[8:19] == "Port_Orange":
+      dest1=name[:-5]+"_Florida.xlsx"
+      dest2=name[:-5]+"_South.xlsx"
+      shutil.copyfile(name, dest1)
+      shutil.copyfile(name, dest2)
+    elif name[8:17] == "Cleveland":
+      dest1=name[:-5]+"_MA.xlsx"
+      dest2=name[:-5]+"_MW.xlsx"
+      dest3=name[:-5]+"_NE.xlsx"
+      shutil.copyfile(name, dest1)
+      shutil.copyfile(name, dest2)
+      shutil.copyfile(name, dest3)
